@@ -3,16 +3,19 @@ import pytest
 
 def test_book_init():
     """Test Book class initializes with title"""
+    Book.all = []
     book = Book("Title")
     assert book.title == "Title"
 
 def test_author_init():
     """Test Author class initializes with name"""
+    Author.all = []
     author = Author("Name")
     assert author.name == "Name"
 
 def test_contract_init():
     """Test Contract class initializes with author, book, date, royalties"""
+    Contract.all = []
     book = Book("Title")
     author = Author("Name")
     date = '01/01/2001'
@@ -62,6 +65,7 @@ def test_contract_validates_royalties():
 
 def test_author_has_contracts():
     """Test Author class has method contracts() that returns a list of its contracts"""
+    Contract.all = []
     author = Author("Name")
     book = Book("Title")
     contract = Contract(author, book, '01/01/2001', 50000)
@@ -70,6 +74,7 @@ def test_author_has_contracts():
 
 def test_author_has_books():
     """Test Author class has method books() that returns a list of its books"""
+    Contract.all = []
     author = Author("Name")
     book = Book("Title")
     Contract(author, book, '01/01/2001', 50000)
@@ -78,6 +83,7 @@ def test_author_has_books():
 
 def test_book_has_contracts():
     """Test Book class has method contracts() that returns a list of its contracts"""
+    Contract.all = []
     author = Author("Name")
     book = Book("Title")
     contract = Contract(author, book, '01/01/2001', 50000)
@@ -86,6 +92,7 @@ def test_book_has_contracts():
 
 def test_book_has_authors():
     """Test Book class has method authors() that returns a list of its authors"""
+    Contract.all = []
     author = Author("Name")
     book = Book("Title")
     Contract(author, book, '01/01/2001', 50000)
@@ -94,6 +101,7 @@ def test_book_has_authors():
 
 def test_author_can_sign_contract():
     """Test Author class has method sign_contract() that creates a contract for an author and book"""
+    Contract.all = []
     author = Author("Name")
     book = Book("Title")
 
@@ -107,6 +115,7 @@ def test_author_can_sign_contract():
 
 def test_author_has_total_royalties():
     """Test Author class has method total_royalties that gets the sum of all its related contracts' royalties"""
+    Contract.all = []
     author = Author("Name")
     book1 = Book("Title 1")
     book2 = Book("Title 2")
